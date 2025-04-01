@@ -22,7 +22,7 @@ export default function Home() {
       <div className="w-full max-w-3xl space-y-8">
         {/* 标题 */}
         <h1 className="text-4xl font-semibold text-gray-800 text-center">
-          Hey, what's on your mind<br />today?
+          Hey, what&apos;s on your mind<br />today?
         </h1>
 
         {/* 输入框区域 */}
