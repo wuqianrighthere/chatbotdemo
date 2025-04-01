@@ -18,39 +18,41 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#faf8f5] flex flex-col items-center px-4 py-12">
-      <div className="w-full max-w-3xl space-y-8">
+    <div className="min-h-screen bg-[#fdf6f0] flex flex-col items-center px-4 py-16">
+      <div className="w-full max-w-2xl space-y-12">
         {/* 标题 */}
-        <h1 className="text-4xl font-semibold text-gray-800 text-center">
-          Hey, what&apos;s on your mind<br />today?
+        <h1 className="text-[2.5rem] leading-tight font-semibold text-gray-800 text-center">
+          Hi there. What should we<br />dive into today?
         </h1>
 
         {/* 输入框区域 */}
         <div className="relative">
-          <div className="flex items-center bg-white rounded-full shadow-lg">
-            <div className="flex items-center pl-4">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-r from-blue-400 to-purple-500"></div>
-              <span className="mx-2 text-gray-300">+</span>
+          <div className="flex items-center bg-white rounded-[24px] shadow-[0_2px_16px_rgba(0,0,0,0.05)] hover:shadow-[0_4px_24px_rgba(0,0,0,0.08)] transition-shadow">
+            <div className="flex items-center pl-5">
+              <div className="w-7 h-7 rounded-full bg-gradient-to-r from-[#4355f3] to-[#a072ff] flex items-center justify-center">
+                <img src="/copilot-icon.svg" alt="Copilot" className="w-4 h-4" />
+              </div>
+              <span className="mx-2 text-gray-300 text-lg">+</span>
             </div>
             <input
               type="text"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Message Copilot"
-              className="flex-1 py-4 px-4 bg-transparent outline-none"
+              className="flex-1 py-5 px-4 bg-transparent outline-none text-[15px] placeholder:text-gray-400"
             />
-            <button className="p-4">
+            <button className="p-5 hover:bg-gray-50 rounded-r-[24px] transition-colors">
               <HiMicrophone className="w-5 h-5 text-gray-400" />
             </button>
           </div>
         </div>
 
         {/* 快捷操作按钮 */}
-        <div className="flex flex-wrap gap-2 justify-center">
+        <div className="flex flex-wrap gap-3 justify-center">
           {quickActions.map((action) => (
             <button
               key={action.id}
-              className="px-4 py-2 rounded-full bg-white text-gray-600 text-sm hover:bg-gray-50 transition-colors shadow-sm"
+              className="px-5 py-2.5 rounded-full bg-white text-[15px] text-gray-600 hover:bg-gray-50 transition-all shadow-[0_2px_8px_rgba(0,0,0,0.05)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
             >
               {action.text}
             </button>
@@ -58,10 +60,10 @@ export default function Home() {
         </div>
 
         {/* 底部文字 */}
-        <p className="text-center text-sm text-gray-500 mt-8">
+        <p className="text-center text-[13px] text-gray-500">
           Copilot may make mistakes. By interacting with Copilot, you agree to the{' '}
-          <a href="#" className="underline">Terms of Use</a>. See our{' '}
-          <a href="#" className="underline">Privacy Statement</a>.
+          <a href="#" className="underline hover:text-gray-600 transition-colors">Terms of Use</a>. See our{' '}
+          <a href="#" className="underline hover:text-gray-600 transition-colors">Privacy Statement</a>.
         </p>
       </div>
     </div>
