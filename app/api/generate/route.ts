@@ -8,7 +8,8 @@ export async function POST(req: Request) {
     const response = `这是对 "${message}" 的回复`;
     
     return NextResponse.json({ response });
-  } catch (error) {
+  } catch (error: unknown) {
+    console.error('Error processing request:', error);
     return NextResponse.json(
       { error: 'Failed to process request' },
       { status: 500 }
