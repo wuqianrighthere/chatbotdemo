@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-color: #f3f4f6;
+  background-color: #faf8f5;
 }
 
 /* 自定义滚动条样式 */
@@ -22,4 +22,14 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+/* 自定义字体样式 */
+h1, h2, h3, h4, h5, h6 {
+  font-feature-settings: "ss01", "ss02", "ss03";
+}
+
+/* 输入框自定义样式 */
+input::placeholder {
+  color: #9ca3af;
 }

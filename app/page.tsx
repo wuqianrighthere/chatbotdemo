@@ -1,71 +1,68 @@
 'use client';
 
 import { useState } from 'react';
+import { HiMicrophone } from 'react-icons/hi';
 
 export default function Home() {
   const [message, setMessage] = useState('');
 
+  const quickActions = [
+    { id: 1, text: 'Write a first draft' },
+    { id: 2, text: 'Get advice' },
+    { id: 3, text: 'Learn something new' },
+    { id: 4, text: 'Create an image' },
+    { id: 5, text: 'Make a plan' },
+    { id: 6, text: 'Brainstorm' },
+    { id: 7, text: 'Practice a language' },
+    { id: 8, text: 'Take a quiz' },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100 p-4">
-      <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg overflow-hidden">
-        {/* 顶部标题栏 */}
-        <div className="p-4 border-b border-gray-200">
-          <h1 className="text-xl font-semibold text-gray-800">AI Chat</h1>
-        </div>
-        
-        {/* 聊天消息区域 */}
-        <div className="h-[600px] overflow-y-auto p-4 space-y-4">
-          {/* 用户消息 */}
-          <div className="flex justify-end">
-            <div className="bg-blue-500 text-white rounded-lg py-2 px-4 max-w-[70%]">
-              <p>你好，请帮我写一个Python爬虫程序</p>
-            </div>
-          </div>
-          
-          {/* AI回复 */}
-          <div className="flex justify-start">
-            <div className="bg-gray-100 text-gray-800 rounded-lg py-2 px-4 max-w-[70%]">
-              <p>好的，我来帮你写一个简单的Python爬虫程序。这个程序将使用requests库来获取网页内容，使用BeautifulSoup来解析HTML。</p>
-              <pre className="mt-2 bg-gray-200 p-2 rounded text-sm overflow-x-auto">
-                {`import requests
-from bs4 import BeautifulSoup
+    <div className="min-h-screen bg-[#faf8f5] flex flex-col items-center px-4 py-12">
+      <div className="w-full max-w-3xl space-y-8">
+        {/* 标题 */}
+        <h1 className="text-4xl font-semibold text-gray-800 text-center">
+          Hey, what's on your mind<br />today?
+        </h1>
 
-def fetch_webpage(url):
-    response = requests.get(url)
-    return response.text
-
-def parse_html(html):
-    soup = BeautifulSoup(html, 'html.parser')
-    return soup
-
-# 使用示例
-url = "https://example.com"
-html = fetch_webpage(url)
-soup = parse_html(html)
-print(soup.title.string)`}
-              </pre>
-            </div>
-          </div>
-        </div>
-        
         {/* 输入框区域 */}
-        <div className="p-4 border-t border-gray-200">
-          <div className="flex space-x-4">
+        <div className="relative">
+          <div className="flex items-center bg-white rounded-full shadow-lg">
+            <div className="flex items-center pl-4">
+              <div className="w-6 h-6 rounded-full bg-gradient-to-r from-blue-400 to-purple-500"></div>
+              <span className="mx-2 text-gray-300">+</span>
+            </div>
             <input
               type="text"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="输入消息..."
-              className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500"
+              placeholder="Message Copilot"
+              className="flex-1 py-4 px-4 bg-transparent outline-none"
             />
-            <button 
-              onClick={() => setMessage('')}
-              className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
-            >
-              发送
+            <button className="p-4">
+              <HiMicrophone className="w-5 h-5 text-gray-400" />
             </button>
           </div>
         </div>
+
+        {/* 快捷操作按钮 */}
+        <div className="flex flex-wrap gap-2 justify-center">
+          {quickActions.map((action) => (
+            <button
+              key={action.id}
+              className="px-4 py-2 rounded-full bg-white text-gray-600 text-sm hover:bg-gray-50 transition-colors shadow-sm"
+            >
+              {action.text}
+            </button>
+          ))}
+        </div>
+
+        {/* 底部文字 */}
+        <p className="text-center text-sm text-gray-500 mt-8">
+          Copilot may make mistakes. By interacting with Copilot, you agree to the{' '}
+          <a href="#" className="underline">Terms of Use</a>. See our{' '}
+          <a href="#" className="underline">Privacy Statement</a>.
+        </p>
       </div>
     </div>
   );
